@@ -14,7 +14,7 @@ class FileLogger:
         self.file_handler.write(message)
 
 class LevelFilteredLogger(FileLogger):
-    def __init__(self, level, file_handler):
+    def __init__(self, file_handler, level):
         self.level = level
         super().__init__(file_handler)
     

@@ -22,13 +22,13 @@ class LevelFilteredLogger(FileLogger):
         if self.level in message:
             super().log(message)
 
-class STDOutLogger:
+class STDOutHandler:
     def log(self, message):
         print(message)
 
 class STDOutAdapter(FileHandler):
     def __init__(self):
-        self.STDOutLogger = STDOutLogger()
+        self.STDOutLogger = STDOutHandler()
         super().__init__(None)
 
     def write(self, message):

@@ -1,5 +1,17 @@
+import abc
+
+class Filter:
+    @abc.abstractmethod
+    def should_keep(self, message):
+        pass
+
+class Handler:
+    @abc.abstractmethod
+    def write(self, message):
+        pass
+
 class Logger:
-    def __init__(self, filters, handlers):
+    def __init__(self, filters: list[Filter], handlers: list[Handler]):
         self.filters = filters
         self.handlers = handlers
     
